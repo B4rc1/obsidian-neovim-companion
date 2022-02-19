@@ -11,7 +11,12 @@ https://user-images.githubusercontent.com/10383737/154821129-a9073f2f-a94e-4655-
 
 ## 🔧 Installing and Setup
 
-- Download the plugin 
+- Download & Compile the plugin:
+  - `git clone https://github.com/B4rc1/obsidian-neovim-companion /path/to/vault/.obsidian/plugins/obsidian-neovim-companion`
+  - `cd /path/to/vault/.obsidian/plugins/obsidian-neovim-companion`
+  - `npm run-script build`
+  - enable in obsidian settings like any other plugin
+  - when you want to update, cd into `/path/to/vault/.obsidian/plugins/obsidian-neovim-companion` and run `git pull`
 - start a neovim instance with `nvim --listen /tmp/nvimsocket` or `NVIM_LISTEN_ADRESS=/tmp/nvimsocket nvim` (see `:h --listen` and `:h $NVIM_LISTEN_ADRESS` for more information)
   - in case you use [neovim-remote](https://github.com/mhinz/neovim-remote) this is done automatically (when using `nvr` executable).
   - the socket path is configurable in the obsidian settings
