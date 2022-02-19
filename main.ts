@@ -1,4 +1,4 @@
-import { App, FileSystemAdapter, Document, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting, ButtonComponent } from 'obsidian';
+import { App, FileSystemAdapter, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting, ButtonComponent } from 'obsidian';
 
 import { attach, NeovimClient } from 'neovim';
 import * as net from 'net'
