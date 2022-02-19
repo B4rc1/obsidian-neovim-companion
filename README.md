@@ -7,10 +7,11 @@ Note: As I am very busy ATM, progress will be erratic.
 
 ## 🖼️ See it in action
 
+https://user-images.githubusercontent.com/10383737/154821129-a9073f2f-a94e-4655-80e6-4fc75a7e4212.mp4
 
 ## 🔧 Installing and Setup
 
-- Download the plugin
+- Download the plugin 
 - start a neovim instance with `nvim --listen /tmp/nvimsocket` or `NVIM_LISTEN_ADRESS=/tmp/nvimsocket nvim` (see `:h --listen` and `:h $NVIM_LISTEN_ADRESS` for more information)
   - in case you use [neovim-remote](https://github.com/mhinz/neovim-remote) this is done automatically (when using `nvr` executable).
   - the socket path is configurable in the obsidian settings
