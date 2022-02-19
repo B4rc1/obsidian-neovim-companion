@@ -1,9 +1,14 @@
-## Obsidian Neovim Companion
+# Obsidian Neovim Companion
 
 This plugin integrates Neovim into your editing experience. Currently, it provides:
 - following you around as you open/focus files in obsidian
 
-## Installing and Setup
+Note: As I am very busy ATM, progress will be erratic.
+
+## 🖼️ See it in action
+
+
+## 🔧 Installing and Setup
 
 - Download the plugin
 - start a neovim instance with `nvim --listen /tmp/nvimsocket` or `NVIM_LISTEN_ADRESS=/tmp/nvimsocket nvim` (see `:h --listen` and `:h $NVIM_LISTEN_ADRESS` for more information)
@@ -12,14 +17,11 @@ This plugin integrates Neovim into your editing experience. Currently, it provid
 - ???
 - Profit
 
-## Roadmap
+## 🛣️ Roadmap
 
-- how to unmap events?
-  - without nuking the settings menu in the process
-- add rename support
-- add create `Untitled.md` workaround
+- Lua Plugin, the part this plugin plays should be as minimal as possible.
 
-### Future
+## 💡 Ideas
 - lua callback/autocmd for everything
 - link following
 - cmp integration
@@ -27,4 +29,4 @@ This plugin integrates Neovim into your editing experience. Currently, it provid
 - `extract heading to ...` neovim bind support
 
 - reverse sync
-  - open file in neovim -> preview in obsidian
+  - open file in neovim -> obsidian follows
