@@ -46,7 +46,7 @@ export default class NvimCompanion extends Plugin {
       if (hadError) {
         new Notice("WARNIG: Could not connect to any neovim instance on: " + this.settings.socket )
       } else {
-        new Notice("The connected neovim instance has exited")
+        new Notice("Connection to the Neovim instance has been closed")
         this.unload()
         // should this be the default behavior? Or should this be a keybind :thinking:
         // this.load()
@@ -57,11 +57,20 @@ export default class NvimCompanion extends Plugin {
       console.error("[Neovim Companion]: the socket had an error: " + e)
     })
 
-    this.socket.on('ready', () => {
+    this.socket.on('ready', async () => {
       this.nvim = attach({
         reader: this.socket,
         writer: this.socket,
       })
+
+      const companion_request = await this.nvim.commandOutput('lua print(pcall(require, "obsidian-companion"))')
+      const is_companion_installed = companion_request.contains("true")
+
+      if (!is_companion_installed) {
+        new Notice("Connected to nvim, but could not load companion neovim plugin. Please install and restart obsidian")
+        console.log("[Neovim Companion]: Could not find obsidian-companion")
+        this.unload()
+      }
       this.registerCallbacks()
       console.log("[Neovim Companion]: connected to neovim on \"" + this.settings.socket + "\"")
     })
@@ -77,10 +86,7 @@ export default class NvimCompanion extends Plugin {
       if(!markdownView) return;
 
       const fpath = this.getVaultRoot() + "/" + file.path
-      const bufpath = await this.nvim.buffer.name
-      if(fpath != bufpath) {
-        this.nvim.command('edit ' + fpath);
-      }
+      this.nvim.lua(`require("obsidian-companion").on_file_open("${fpath}")`)
     }))
   }
 
